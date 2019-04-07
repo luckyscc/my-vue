@@ -3,8 +3,8 @@ const state = {
 }
 
 const mutations = {
-    add(state) {
-        state.count++
+    add(state, param) {
+        state.count += param
     },
     reduce(state) {
         state.count--
@@ -12,8 +12,8 @@ const mutations = {
 }
 
 const actions = {
-    add: ({commit}) => {
-        commit('add')
+    add: ({commit}, param) => {
+        commit('add', param)
     },
     reduce: ({commit}) => {
         commit('reduce')
