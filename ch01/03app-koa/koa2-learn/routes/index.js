@@ -16,4 +16,19 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+router.get('/testAsync', async (ctx) => {
+  global.console.log("nmsl", new Date().getTime())
+  const a = await new Promise((resolve, reject) => {
+    setTimeout(function() {
+      global.console.log("nmsl", new Date().getTime())
+      resolve('ab')
+    }, 1000)
+  })
+  const b = await 12;
+  ctx.body = {
+    a,
+    b
+  }
+})
+
 module.exports = router
